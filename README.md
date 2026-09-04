@@ -5,3 +5,6 @@ Integrantes:
 
 Hugo José de Oliveira
 Maria Luísa Araújo da Silva
+
+Código de excessão: 
+(Set-ExecutionPolicy -Scope Process -ExecutionPolicy RemoteSigned) ; (& c:\Users\Aluno\Documents\projeto\venv\Scripts\Activate.ps1)
