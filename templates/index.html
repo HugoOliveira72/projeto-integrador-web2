@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python</title>
+</head>
+<body>
+    
+<form method="post">
+
+<input name="nome" placeholder="Insira seu nome">
+<input name="data" placeholder="Insira a data atual">
+<input name="local" placeholder="Insira seu local">
+
+<button type="submit">Cadastrar</button>
+
+
+</form>
+
+<ul>
+
+    {% for e in eventos %}
+    <li>{{e.nome}} - {{e.data}} - {{e.local}} </li>
+    {% endfor %}
+
+</ul>
+
+</body>
+</html>
