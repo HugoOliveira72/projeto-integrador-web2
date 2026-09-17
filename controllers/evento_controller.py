@@ -12,6 +12,6 @@ def index():
         request.form["data"],
         request.form["local"],
 
-    eventos.append(evento)
-    return redirect("/")
-return render_template("index.html", eventos = eventos)
+        eventos.append(evento)
+        return redirect("/")
+    return render_template("index.html", eventos = eventos)
