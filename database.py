@@ -20,5 +20,8 @@ cursor.execute(
 conexao.commit()
 
 cursor.execute("SELECT id, nome FROM evento")
-for linha in cursor.fetchall():
-  print(linha)
+for id_evento, nome in cursor.fetchall():
+    print(id_evento, nome)
+
+
+conexao.close()
