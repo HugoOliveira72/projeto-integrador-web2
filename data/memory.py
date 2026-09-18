@@ -1,1 +1,1 @@
-eventos = []
+import sqlite3
