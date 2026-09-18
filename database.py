@@ -22,3 +22,6 @@ conexao.commit()
 cursor.execute("SELECT id, nome FROM evento")
 for id_evento, nome in cursor.fetchall():
     print(id_evento, nome)
+
+
+conexao.close()
