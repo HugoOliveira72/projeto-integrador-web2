@@ -1,0 +1,23 @@
+[33mcommit bad6174e0662a7c5eef1b2b9f623a64ccbd1adc6[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: Malu <maluaraujosilva02@gmail.com>
+Date:   Wed Sep 2 12:01:36 2026 -0300
+
+    feat: ativamos a venv, inicializou o  servidor flask e atualizou as dependencias
+
+[33mcommit c80d58d4ef0d41cf8b98b41fd3b02a5cd34e9448[m
+Author: Malu <maluaraujosilva02@gmail.com>
+Date:   Wed Sep 2 11:29:14 2026 -0300
+
+    Alteracao do Readme
+
+[33mcommit 8be38e901f1e5399d48b244c758b18ea70e5382f[m
+Author: Malu <maluaraujosilva02@gmail.com>
+Date:   Sun Aug 30 15:12:43 2026 -0300
+
+    Segundo commit
+
+[33mcommit bbef52d6c0574cc3e3fbd4f3182902665c723ade[m
+Author: Hugo José de Oliveira <84344414+HugoOliveira72@users.noreply.github.com>
+Date:   Sun Aug 30 14:15:20 2026 -0300
+
+    Initial commit
