@@ -4,6 +4,7 @@
 from database import conectar
 from models.evento import Evento
 
+
 class EventDAO:
     # Insere um evento no banco e confirma a transacao.
     @staticmethod
@@ -20,7 +21,7 @@ class EventDAO:
     @staticmethod
     def listar():
         conexao = conectar()
-        cursor = conexao.conectar()
+        cursor = conexao.cursor()
         cursor.execute("SELECT id, nome, data, local, vagas FROM evento")
         linhas = cursor.fetchall()
         conexao.close()
