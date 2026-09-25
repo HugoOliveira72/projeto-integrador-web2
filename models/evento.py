@@ -1,11 +1,12 @@
 # models/evento.py
+from extensions import db
 
 
-class Evento:
+class Evento(db.Model):
 
     def __init__(self, nome, data, local, vagas, id=None):
-        self.id = id
-        self.nome = nome
-        self.data = data
-        self.local = local
-        self.vagas = vagas
+        id = db.Column(db.Integer, primary_key=True)
+        nome = db.Column(db.String(120), nullable=False)
+        data = db.Column(db.String(10),  nullable=False)
+        local = db.Column(db.String(120))
+        vagas = db.Column(db.Integer)
