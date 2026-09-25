@@ -23,3 +23,13 @@ class Evento(db.Model):
 todos= Evento.query.all()                        
 um= Evento.query.get(1)
 auditorio= Evento.query.filter_by(local="Auditório").all()
+
+
+# atualizando
+evento = Evento.query.get(1)
+evento.vagas = 60
+db.session.commit()
+
+# removendo
+db.session.delete(evento)
+db.session.commit()
