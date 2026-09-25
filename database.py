@@ -15,7 +15,7 @@ def conectar():
 
 
 # Cria as tabelas do DER da Aula 5.
-def criar_tabelas():
+# def criar_tabelas():
     conexao = conectar()
     cursor = conexao.cursor()
 
