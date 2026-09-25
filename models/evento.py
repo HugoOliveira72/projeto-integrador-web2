@@ -16,3 +16,10 @@ class Evento(db.Model):
     novo = Evento(nome="Hackathon", data="2026-10-01", local="Lab 3", vagas=40)
     db.session.add(novo)
     db.session.commit()
+
+
+# consultar
+
+todos= Evento.query.all()                        
+um= Evento.query.get(1)
+auditorio= Evento.query.filter_by(local="Auditório").all()
