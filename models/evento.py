@@ -11,6 +11,7 @@ class Evento(db.Model):
         local = db.Column(db.String(120))
         vagas = db.Column(db.Integer)
 
+    db.create_all()
 
     novo = Evento(nome="Hackathon", data="2026-10-01", local="Lab 3", vagas=40)
     db.session.add(novo)
