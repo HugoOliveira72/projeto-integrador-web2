@@ -1,13 +1,17 @@
+<!---A base desse site é o base.html, utilizado para construir a estrutura básica  o código necessário--->
 {% extends "base.html"}
 
+<!--Substitui o titulo-->
 {% block titulo %} Editar evento {% endblock %}
 
+<!---Neste ponto vai ser substituído lá no block conteudo do base.html--->
 {% block conteudo %}
 
 <h2>Editar evento</h2>
 
 <form method = "post">
-
+<!--O forms irá ser aberto já preenchido com os valores recentes-->
+  
 <input name = "nome" type = name value = "{{ evento.nome}}" required>
 <input name = "data" type = date value = "{{ evento.data}}" required>
 <input name = "local" value = "{{ evento.local}}" required>
