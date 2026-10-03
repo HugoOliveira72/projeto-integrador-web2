@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <title>{% block title %} Eventos Acadêmicos{% endblock %}</title>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+<body>
+
+    <!--Estrutura Base-->
+    
+<header>
+    <h1>Eventos Acadêmicos</h1>
+
+    <nav>
+
+<!--Será mostrada a lista de eventos-->
+<!--Url for é um arquivo que está fora do diretório static-->
+
+<a href="{{ url_for ('evento.index')}}">Lista de Eventos</a>
+    </nav>
+</header>
+
+<main>
+    <!--Uma mensagem renderizada, todas mensagens serão exibidas-->
+<!--É uma estrutura dinâmica, novas mensagens são adicionadas-->
+    <!--O for vai percorrer todas as mensagens que estão na lista de mensagens-->
+
+    {% for mensagem in get_flashed_messages() %}
+        <p class="aviso">{{ mensagem }}</p>
+    {% endfor %}
+
+    <!--Flash message = aviso -->
+
+    <!--O bloco de conteúdo específico para cada página, vai ser preenchido pelas páginas filhas -->
+    {% block content %}{% endblock %}
+
+</main>
+
+<footer>
+    <p>© Desenvolvimento Web II 2026 - FATEC Porto Ferreira. Todos os direitos reservados.</p>
+</footer>
+
+</body>
+</html>
