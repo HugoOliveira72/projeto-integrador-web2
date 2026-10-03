@@ -47,11 +47,15 @@
         <form method="post" action="{{url_for(evento.deletar, id = e.id)}}">
           <button type="submit">Excluir</button>
         </form>
-
-      </li>
+       </li>
       {% endfor %}
 
     </ul>
+
+    {% else %}
+      <p class = "contagem">Nenhum evento cadastrado.</p>
+    {% endif %}
+
         <!--Tem mais coisas-->
 
 
