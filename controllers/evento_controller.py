@@ -36,6 +36,7 @@ def editar(id):
         )
         flash("Evento atualizado com sucesso!")
         return redirect(url_for("evento.index"))
+        #evento.index eh o nome do Blueprint 
 
     return render_template("editar.html", evento=evento)    
 
