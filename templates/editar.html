@@ -1,0 +1,20 @@
+{% extends "base.html"}
+
+{% block titulo %} Editar evento {% endblock %}
+
+{% block conteudo %}
+
+<h2>Editar evento</h2>
+
+<form>
+
+<input name = "nome" type = name value = "{{ evento.nome}}" required>
+  
+
+  
+</form>
+
+
+<p> <a href = "{{ url_for('evento.index)}}"> Cancelar </a> </p>
+
+{% endblock %}
