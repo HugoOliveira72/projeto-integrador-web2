@@ -1,4 +1,6 @@
-from flask import Blueprint, render_template, request, redirect
+from curses import flash
+
+from flask import Blueprint, render_template, request, redirect, url_for, flash
 from models.evento import Evento
 from dao.evento_dao import EventDAO
 
@@ -14,7 +16,26 @@ def index():
             request.form["local"],
             request.form["vagas"]
         )
-
         EventDAO.salvar(evento)
-        return redirect("/")
+        flash("Evento cadastrado com sucesso!")
+        return redirect(url_for("evento.index"))
+
     return render_template("index.html", eventos=EventDAO.listar())
+
+@evento_bp.route("/editar/<int:id>", methods=["GET", "POST"])
+def editar(id):
+    evento = EventDAO.buscar_por_id(id)
+
+    if request.method == "POST":
+        EventDAO.atualizar(
+            evento,
+            request.form["nome"],
+            request.form["data"],
+            request.form["local"],
+            request.form["vagas"]
+        )
+        flash("Evento atualizado com sucesso!")
+        return redirect(url_for("evento.index"))
+
+    return render_template("editar.html", evento=evento)    
+
