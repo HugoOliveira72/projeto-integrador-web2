@@ -1,4 +1,4 @@
-<!doctype html>
+<!--<!doctype html>
 <html lang="pt-br">
   <head>
     <meta charset="UTF-8" />
@@ -7,23 +7,53 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+
+  -->
+{extends "base.html" %}
+
+{%block titulo%}Cadastro de Eventos{%endblock%}
+
+{%block conteudo%}
+
     <h1>Cadastro de Eventos</h1>
     <form method="post">
       <input name="nome" placeholder="Insira seu nome" required>
       <input name="data" type = "date" placeholder="Insira a data atual" required >
       <input name="local" placeholder="Insira seu local" >
       <input name="vagas" placeholder="Insira o número de vagas" >
-
       <button type="submit">Cadastrar</button>
     </form>
 
-    <ul>
+
+    <h2>Eventos Cadastrados</h2>
+
+    <!--Se existe eventos dentro da lista-->
+    {% if eventos %}
+
+    <!--output: X eventos cadastrados-->
+     <p class = "contagem">{{ eventos|length }} evento(s) cadastrados.</p>
+
+     <ul>
       {% for e in eventos %}
       <li>
-        {{ e.id }} — {{ e.nome }} — {{ e.data }} — {{ e.local }} — {{ e.vagas }}
+        <!--Exibe conteúdo da variável-->
+        <strong>{{ e.id }}</strong> — {{ e.nome }} — {{ e.data }} — {{ e.local }} — {{ e.vagas }}
         vagas
+
+        <!--UPDATE, temos o id com argumento-->
+        <a href="{{url_for(evento.editar, id = e.id)}}">Editar</a>
+
+        <!--DELETE, sem link-->
+        <form method="post" action="{{url_for(evento.deletar, id = e.id)}}">
+          <button type="submit">Excluir</button>
+        </form>
+
       </li>
       {% endfor %}
+
     </ul>
+        <!--Tem mais coisas-->
+
+
   </body>
 </html>
