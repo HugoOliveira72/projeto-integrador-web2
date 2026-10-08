@@ -1,6 +1,5 @@
-from curses import flash
-from flask import Blueprint, render_template, request, redirect,
-                   url_for, flash
+from flask import (Blueprint, render_template, request, redirect,
+                   url_for, flash, abort)
 from models.evento import Evento
 from dao.evento_dao import EventoDAO
 
@@ -41,7 +40,17 @@ def editar(id):
         flash("Evento atualizado com sucesso!")
         # "evento.index" = nome do Blueprint + nome da funcao da rota
         return redirect(url_for("evento.index"))
-        #evento.index eh o nome do Blueprint 
 
     return render_template("editar.html", evento=evento)
 
+
+# Somente POST: excluir altera dados, entao nunca deve ser feito por link (GET).
+@evento_bp.route("/deletar/<int:id>", methods=["POST"])
+def deletar(id):
+    evento = EventoDAO.buscar_por_id(id)
+    if evento is None:
+        abort(404)
+
+    EventoDAO.deletar(evento)
+    flash("Evento excluído com sucesso!")
+    return redirect(url_for("evento.index"))
