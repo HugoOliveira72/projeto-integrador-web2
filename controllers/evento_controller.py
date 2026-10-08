@@ -1,8 +1,7 @@
 from curses import flash
-
 from flask import Blueprint, render_template, request, redirect, url_for, flash
 from models.evento import Evento
-from dao.evento_dao import EventDAO
+from dao.evento_dao import EventoDAO
 
 evento_bp = Blueprint("evento", __name__)
 
@@ -16,18 +15,18 @@ def index():
             request.form["local"],
             request.form["vagas"]
         )
-        EventDAO.salvar(evento)
+        EventoDAO.salvar(evento)
         flash("Evento cadastrado com sucesso!")
         return redirect(url_for("evento.index"))
 
-    return render_template("index.html", eventos=EventDAO.listar())
+    return render_template("index.html", eventos=EventoDAO.listar())
 
 @evento_bp.route("/editar/<int:id>", methods=["GET", "POST"])
 def editar(id):
-    evento = EventDAO.buscar_por_id(id)
+    evento = EventoDAO.buscar_por_id(id)
 
     if request.method == "POST":
-        EventDAO.atualizar(
+        EventoDAO.atualizar(
             evento,
             request.form["nome"],
             request.form["data"],
