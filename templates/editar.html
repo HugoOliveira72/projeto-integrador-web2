@@ -1,5 +1,4 @@
-<!---A base desse site é o base.html, utilizado para construir a estrutura básica  o código necessário--->
-{% extends "base.html"}
+{% extends "base.html" %}
 
 <!--Substitui o titulo-->
 {% block titulo %} Editar evento {% endblock %}
@@ -9,18 +8,18 @@
 
 <h2>Editar evento</h2>
 
-<form method = "post">
+<form method="post">
 <!--O forms irá ser aberto já preenchido com os valores recentes-->
-  
-<input name = "nome" type = name value = "{{ evento.nome}}" required>
-<input name = "data" type = date value = "{{ evento.data}}" required>
-<input name = "local" value = "{{ evento.local}}" required>
-<input name="vagas" value="{{ evento.vagas }}">
 
-<button type = "submit" > Salvar </button>
-  
+<input name="nome" type="text" value="{{ evento.nome }}" required>
+<input name="data" type="date" value="{{ evento.data }}" required>
+<input name="local" value="{{ evento.local or '' }}">
+<input name="vagas" value="{{ '' if evento.vagas is none else evento.vagas }}">
+
+<button type="submit">Salvar</button>
+
 </form>
 
-<p> <a href = "{{ url_for('evento.index)}}"> Cancelar </a> </p>
+<p><a href="{{ url_for('evento.index') }}">Cancelar</a></p>
 
 {% endblock %}

@@ -11,16 +11,16 @@
   -->
 {extends "base.html" %}
 
-{%block titulo%}Cadastro de Eventos{%endblock%}
+{% block titulo %}Cadastro de Eventos{% endblock %}
 
-{%block conteudo%}
+{% block conteudo %}
 
     <h1>Cadastro de Eventos</h1>
     <form method="post">
       <input name="nome" placeholder="Insira seu nome" required>
-      <input name="data" type = "date" placeholder="Insira a data atual" required >
-      <input name="local" placeholder="Insira seu local" >
-      <input name="vagas" placeholder="Insira o número de vagas" >
+      <input name="data" type="date" placeholder="Insira a data atual" required>
+      <input name="local" placeholder="Insira seu local">
+      <input name="vagas" placeholder="Insira o número de vagas">
       <button type="submit">Cadastrar</button>
     </form>
 
@@ -31,20 +31,21 @@
     {% if eventos %}
 
     <!--output: X eventos cadastrados-->
-     <p class = "contagem">{{ eventos|length }} evento(s) cadastrados.</p>
+     <p class="contagem">{{ eventos|length }} evento(s) cadastrados.</p>
 
      <ul>
       {% for e in eventos %}
       <li>
-        <!--Exibe conteúdo da variável-->
-        <strong>{{ e.id }}</strong> — {{ e.nome }} — {{ e.data }} — {{ e.local }} — {{ e.vagas }}
+        <!--Exibe conteúdo da variável (vagas vazio = None, mostramos em branco)-->
+        <strong>{{ e.id }}</strong> — {{ e.nome }} — {{ e.data }} — {{ e.local }} — {{ '' if e.vagas is none else e.vagas }}
         vagas
 
         <!--UPDATE, temos o id com argumento-->
-        <a href="{{url_for(evento.editar, id = e.id)}}">Editar</a>
+        <a href="{{ url_for('evento.editar', id=e.id) }}">Editar</a>
 
-        <!--DELETE, sem link-->
-        <form method="post" action="{{url_for(evento.deletar, id = e.id)}}">
+        <!--DELETE, sem link: precisa ser um formulario POST-->
+        <form method="post" action="{{ url_for('evento.deletar', id=e.id) }}"
+              onsubmit="return confirm('Excluir este evento?')">
           <button type="submit">Excluir</button>
         </form>
        </li>
@@ -53,8 +54,6 @@
     </ul>
 
     {% else %}
-      <p class = "contagem">Nenhum evento cadastrado.</p>
+      <p class="contagem">Nenhum evento cadastrado.</p>
     {% endif %}
 {% endblock %}
-  </body>
-</html>
