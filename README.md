@@ -41,7 +41,7 @@ python -m venv venv
 .\venv\Scripts\Activate
 ```
 
-   - *(Se ocorrer erro de permissão de script, execute no PowerShell: `(Set-ExecutionPolicy -Scope Process -ExecutionPolicy RemoteSigned);(& "C:\Users\Nome-do-usuario\projeto-integrador-web2") `*
+   - *(Se ocorrer erro de permissão de script, execute no PowerShell: (Set-ExecutionPolicy -Scope Process -ExecutionPolicy RemoteSigned);(& "C:\Users\Nome-do-usuario\projeto-integrador-web2\venv\Scripts\Activate.ps1") *
 
    - *No lugar das aspas, adicionar o caminho do projeto*
 
