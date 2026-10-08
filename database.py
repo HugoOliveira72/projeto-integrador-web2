@@ -4,6 +4,8 @@
 import os
 import sqlite3
 
+# Cria o caminho do banco de dados pasta instance/eventos.db. 
+# A pasta instance nao existe, entao o sqlite3 nao consegue criar o arquivo do banco.
 CAMINHO_BANCO = "instance/eventos.db"
 
 
