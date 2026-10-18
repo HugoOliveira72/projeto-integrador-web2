@@ -1,0 +1,14 @@
+{ % extends "base.html" %}
+
+{% block titulo %} Usuario {% endlock %}
+
+{% block conteudo %}
+
+  <h2>Usuario</h2>
+
+  <form method = "POST" >
+  <input name = "nome"  value = " {{ usuario }}" required>
+  <button type = "submit"> Salvar </button>
+  </form>
+
+{% endblock %}
