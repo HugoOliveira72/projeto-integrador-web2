@@ -9,7 +9,7 @@ if (formLogin && error) {
         let mensagemErro = "";
 
         //Tamanho min da senha eh 6 e max 20
-        if(senha.length <6) {
+        if(senha.length < 6) {
             mensagemErro = "A senha deve ter pelo menos 6 caracteres.";
         } else if (senha.length > 20) {
             mensagemErro = "A senha não pode ter mais de 20 caracteres.";
