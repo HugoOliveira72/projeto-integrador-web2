@@ -5,7 +5,6 @@ from dao.evento_dao import EventoDAO
 
 evento_bp = Blueprint("evento", __name__)
 
-
 @evento_bp.route("/", methods=["GET", "POST"])
 def index():
     if request.method == "POST":
