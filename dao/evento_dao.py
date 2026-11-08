@@ -2,7 +2,7 @@
 # O acesso ao banco e feito pelo ORM (db.session / Evento.query).
 # O Controller nao conhece SQL nem a sessao do ORM.
 
-from extensions import db
+from db import db
 from models.evento import Evento
 
 
