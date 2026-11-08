@@ -2,7 +2,7 @@ from flask import Flask
 from controllers.evento_controller import evento_bp
 from controllers.auth_controller import autenticacao_bp
 from database import criar_tabelas, conectar_banco
-from db import db
+from extensions import db 
 
 # Cria o app Flask e
 app = Flask(__name__)
