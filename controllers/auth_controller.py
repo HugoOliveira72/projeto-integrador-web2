@@ -16,15 +16,17 @@ def login():
         password = request.form['password']
 
         if autenticar_usuario(usuario, password):
-            render_template("success.html")
+          return render_template("success.html")
         else:
-            render_template("fail.html")
-
+          flash("Usuário ou senha incorreta!")
+          return render_template("fail.html")
+# Método GEt, apenas abrir a página
         return render_template("login.html")
 
 
 def autenticar_usuario(email, password):
     usuario = buscar_usuario_por_email(email)
+  #Verifica se o usuário e a senha bate
     if usuario and check_password_hash(usuario["password"], password):
         session["usuario_id"] = usuario["id"]
         session["usuario_perfil"] = usuario["perfil"]
