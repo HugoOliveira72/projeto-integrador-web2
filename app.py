@@ -14,6 +14,9 @@ app.secret_key = 'chave secreta'
 # Agrupa as rotas do Blueprint "evento" no app. Todas as rotas do
 # Blueprint comecam com /evento.
 
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///eventos.db'
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False 
+
 db.init_app(app)
 
 app.register_blueprint(evento_bp)
