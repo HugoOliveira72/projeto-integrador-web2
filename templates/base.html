@@ -22,7 +22,7 @@
 <!--Será mostrada a lista de eventos-->
 <!--Url for é um arquivo que está fora do diretório static-->
 
-<a href="{{ url_for ('evento.index')}}">Lista de Eventos</a>
+<a href="{{url_for('eventos.index')}}">Lista de Eventos</a>
     </nav>
 </header>
 
@@ -38,7 +38,7 @@
     <!--Flash message = aviso -->
 
     <!--O bloco de conteúdo específico para cada página, vai ser preenchido pelas páginas filhas -->
-    {% block content %}{% endblock %}
+    {% block conteudo %}{% endblock %}
 
 </main>
 
@@ -46,6 +46,6 @@
     <p>© Desenvolvimento Web II 2026 - FATEC Porto Ferreira. Todos os direitos reservados.</p>
 </footer>
 
-<script></script>
+<script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
 </html>

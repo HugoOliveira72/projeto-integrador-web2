@@ -6,19 +6,19 @@
 <form id="formLogin" method="post" action="{{url_for('autenticacao.login')}}">
 
     <h2>Login</h2>
-    <label for=" username">Nome de usuário: </label>
-    <input type="text" id = "username" name = "username" required>
+    <label for=" email">Email: </label>
+    <input type="email" id = "email" name = "email" required>
     <br><br>
 
-    <label for="password">Senha: </label>
-    <input type="password" id = "senha" name = "password" required>
+    <label for="senha">Senha: </label>
+    <input type="password" id = "senha" name = "senha" required>
     <br><br>
   
     <p id = "error" role = "alert" aria-live="polite"></p>
 
     <input type="submit" value="Enviar">
 
-    <p>Ainda não possue uma conta? <a href="">Registre-se aqui</a>.</p>
+    <p>Ainda não possue uma conta? <a href="{{ url_for('autenticacao.cadastro') }}">Registre-se aqui</a>.</p>
 
 </form>
 
